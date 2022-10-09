@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_normal"
+    app:cardCornerRadius="@dimen/space_medium"
+    app:strokeColor="#42000000"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="@dimen/space_normal">
+
+        <TextView
+            android:id="@+id/assn_name_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_normal"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintEnd_toStartOf="@+id/due_date_txt"
+            app:layout_constraintStart_toEndOf="@id/group_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Essay writing" />
+
+        <ImageView
+            android:id="@+id/group_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="@dimen/space_normal"
+            android:contentDescription="@string/group_activity_indicator"
+            android:src="@drawable/vec_group_work"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/due_date_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="01-10-2022" />
+
+        <TextView
+            android:id="@+id/description_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_normal"
+            android:layout_marginTop="@dimen/space_medium"
+            app:layout_constraintTop_toBottomOf="@+id/assn_name_txt"
+            tools:layout_editor_absoluteX="16dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
