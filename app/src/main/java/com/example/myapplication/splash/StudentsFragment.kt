@@ -11,10 +11,6 @@ import com.example.myapplication.adapters.StudentAdapter
 import com.example.myapplication.databinding.FragmentStudentsBinding
 import com.example.myapplication.global_objects.TaskStatus
 import com.example.myapplication.splash.vm.SplashViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class StudentsFragment : Fragment() {
     companion object {
@@ -44,12 +40,14 @@ class StudentsFragment : Fragment() {
 
     private val studentObserver = Observer<String> {
         when (it) {
-            TaskStatus.LOADING -> {}
+            TaskStatus.LOADING -> {
+                binding.progressBar.visibility = View.VISIBLE
+            }
             TaskStatus.SUCCESS -> {
+                binding.progressBar.visibility = View.GONE
                 binding.studentRecycler.adapter =
                     StudentAdapter(this@StudentsFragment, viewModel.students)
             }
-            TaskStatus.EMPTY -> {}
         }
     }
 }

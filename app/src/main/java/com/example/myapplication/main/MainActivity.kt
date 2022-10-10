@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.myapplication.global_objects.Constants
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.global_objects.Constants
 import com.example.myapplication.main.vm.MainViewModel
 import com.example.myapplication.model.Student
 import com.google.gson.Gson

@@ -14,11 +14,10 @@ class SplashViewModel : ViewModel() {
 
     fun getStudentList() {
         studentStatus.value = TaskStatus.LOADING
-        var result: List<Student>
         viewModelScope.launch {
-            result = repository.getStudentList()
-            students = result
-            studentStatus.value = TaskStatus.SUCCESS
+            val result = repository.getStudentList()
+            students = result.second
+            studentStatus.value = result.first
         }
     }
 }

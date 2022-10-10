@@ -1,4 +1,3 @@
 package com.example.myapplication.adapters
 
-class BottomNavAdapter {
-}
+class BottomNavAdapter

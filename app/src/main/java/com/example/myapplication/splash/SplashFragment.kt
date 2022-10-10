@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentSplashBinding
+import com.example.myapplication.splash.vm.SplashViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -21,6 +23,7 @@ class SplashFragment : Fragment() {
 
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
+    lateinit var viewModel: SplashViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +35,7 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity())[SplashViewModel::class.java]
         showHideProgressBar()
     }
 
@@ -42,7 +46,7 @@ class SplashFragment : Fragment() {
                 delay(2000)
                 visibility = View.GONE
                 parentFragmentManager.beginTransaction().apply {
-                    replace(binding.container.id, LoginFragment.newInstance())
+                    replace(R.id.container, LoginFragment.newInstance())
                     commit()
                 }
             }
