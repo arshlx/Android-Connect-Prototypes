@@ -8,12 +8,13 @@ class SplashRepository {
     private val remote = RetrofitService.getClient()?.create(APIRemote::class.java)
 
     suspend fun getStudentList(): List<Student> {
-        val studentList = mutableListOf<Student>()
+        var studentList = listOf<Student>()
         try {
             val response = remote?.getStudentList()
 
             if (response != null) {
-                response.body()?.let { studentList.addAll(it) }
+                studentList = response.body()!!.toList()
+                println("SplashRepo: $studentList")
             }
 
         }catch (e: Exception) {

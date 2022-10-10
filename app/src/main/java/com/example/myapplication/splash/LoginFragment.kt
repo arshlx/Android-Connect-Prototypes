@@ -59,7 +59,6 @@ class LoginFragment : Fragment() {
         }
     }
 
-
     private fun resetErrors() {
         binding.apply {
             idEdt.error = null
@@ -73,10 +72,3 @@ class LoginFragment : Fragment() {
         }
     }
 }
-
-
-/*
-else -> {
-    idEdt.error = getString(R.string.id_cannot_be_empty)
-    passwordEdt.error = getString(R.string.password_cannot_be_empty)
-}*/

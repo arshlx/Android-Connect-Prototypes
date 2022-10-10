@@ -7,9 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.myapplication.adapters.StudentAdapter
 import com.example.myapplication.databinding.FragmentStudentsBinding
 import com.example.myapplication.global_objects.TaskStatus
 import com.example.myapplication.splash.vm.SplashViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class StudentsFragment : Fragment() {
     companion object {
@@ -25,20 +30,25 @@ class StudentsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentStudentsBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[SplashViewModel::class.java]
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.studentStatus.observe(viewLifecycleOwner, studentObserver)
-        viewModel.getStudentList()
+        viewModel = ViewModelProvider(requireActivity())[SplashViewModel::class.java]
+        viewModel.apply {
+            studentStatus.observe(viewLifecycleOwner, studentObserver)
+            getStudentList()
+        }
     }
 
     private val studentObserver = Observer<String> {
         when (it) {
             TaskStatus.LOADING -> {}
-            TaskStatus.SUCCESS -> {}
+            TaskStatus.SUCCESS -> {
+                binding.studentRecycler.adapter =
+                    StudentAdapter(this@StudentsFragment, viewModel.students)
+            }
             TaskStatus.EMPTY -> {}
         }
     }

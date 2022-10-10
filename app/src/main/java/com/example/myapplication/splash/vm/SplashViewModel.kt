@@ -9,16 +9,16 @@ import kotlinx.coroutines.launch
 
 class SplashViewModel : ViewModel() {
     private val repository = SplashRepository()
-    val students = mutableListOf<Student>()
+    var students = listOf<Student>()
     val studentStatus = MutableLiveData(TaskStatus.NONE)
 
     fun getStudentList() {
         studentStatus.value = TaskStatus.LOADING
-        var result = listOf<Student>()
+        var result: List<Student>
         viewModelScope.launch {
             result = repository.getStudentList()
+            students = result
+            studentStatus.value = TaskStatus.SUCCESS
         }
-        students.addAll(result)
-        studentStatus.value = if (students.isEmpty()) TaskStatus.EMPTY else TaskStatus.SUCCESS
     }
 }
