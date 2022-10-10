@@ -1,17 +1,27 @@
-package com.example.myapplication
+package com.example.myapplication.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.myapplication.global_objects.Constants
+import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.main.vm.MainViewModel
+import com.example.myapplication.model.Student
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
+    private lateinit var viewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel.student =
+            Gson().fromJson(intent.getStringExtra(Constants.STUDENT), Student::class.java)
         setUpBottomNav()
     }
 

@@ -1,10 +1,12 @@
 package com.example.myapplication.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Assignment(
     val id: String,
-    val name: String,
-    val isGroup: Boolean = false,
+    @SerializedName("assignment_name") val name: String,
+    @SerializedName("group_assignment") val isGroup: Boolean = false,
     val startDate: String,
-    val dueDate: String,
+    @SerializedName("assignment_duedate") val dueDate: String,
     val desc: String
 )

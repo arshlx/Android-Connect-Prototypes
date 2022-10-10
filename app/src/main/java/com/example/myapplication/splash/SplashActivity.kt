@@ -1,12 +1,15 @@
-package com.example.myapplication
+package com.example.myapplication.splash
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivitySplashBinding
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -18,17 +21,20 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        title = getString(R.string.connect_plus)
         showHideProgressBar()
     }
 
     private fun showHideProgressBar() {
-        CoroutineScope(Dispatchers.Main).launch{
+        CoroutineScope(Dispatchers.Main).launch {
             binding.progressBar.apply {
                 visibility = View.VISIBLE
-                delay(2500)
+                delay(2000)
                 visibility = View.GONE
-                finish()
-                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                supportFragmentManager.beginTransaction().apply {
+                    replace(binding.container.id, LoginFragment.newInstance())
+                    commit()
+                }
             }
         }
 
