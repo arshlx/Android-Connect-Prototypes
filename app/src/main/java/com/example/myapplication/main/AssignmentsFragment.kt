@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import com.example.myapplication.R
 import com.example.myapplication.adapters.AssignmentAdapter
 import com.example.myapplication.databinding.FragmentAssignmentsBinding
@@ -22,15 +22,14 @@ class AssignmentsFragment : Fragment() {
 
     private var _binding: FragmentAssignmentsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentAssignmentsBinding.inflate(inflater, container, false)
         requireActivity().title = getString(R.string.nav_assignments)
-        viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
         initList()
         return binding.root
     }
@@ -38,7 +37,7 @@ class AssignmentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.assnRecycler.adapter =
-            AssignmentAdapter(viewModel.student.assignments.toMutableList())
+            AssignmentAdapter(viewModel.selStudent.assignments.toMutableList())
     }
 
     private fun initList() {

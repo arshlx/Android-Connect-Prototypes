@@ -4,5 +4,14 @@ import androidx.lifecycle.ViewModel
 import com.example.myapplication.model.Student
 
 class MainViewModel : ViewModel() {
-    lateinit var student: Student
+    lateinit var studentList: List<Student>
+    lateinit var selStudent: Student
+
+   fun setUpAssnList(){
+       studentList.forEach { it ->
+           it.assignments.groupBy {
+               it.dueDate
+           }
+       }
+   }
 }

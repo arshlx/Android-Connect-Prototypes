@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import com.example.myapplication.databinding.FragmentOverviewBinding
 import com.example.myapplication.main.vm.MainViewModel
 
@@ -17,22 +17,21 @@ class OverviewFragment : Fragment() {
 
     private var _binding: FragmentOverviewBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
-        requireActivity().title = viewModel.student.name
+        requireActivity().title = viewModel.selStudent.name
         setUpViews()
         return binding.root
     }
 
     private fun setUpViews() {
         binding.apply {
-            nameTxt.text = viewModel.student.name
-            schoolTxt.text = viewModel.student.school
+//            nameTxt.text = viewModel.selStudent.name
+            schoolTxt.text = viewModel.selStudent.school
         }
     }
 
