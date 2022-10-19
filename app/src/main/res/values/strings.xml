@@ -10,7 +10,18 @@
     <string name="id" tools:ignore="Typos">TestId1</string>
     <string name="pass">Password.1</string>
     <string name="incorrect_id_password">Incorrect ID or password</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="linked_students">Linked Students</string>
+    <string name="exit_warning">Press back again to exit</string>
+    <string name="student_img">Student profile image.</string>
+    <string name="attendance_str">%s attendance</string>
+    <string name="grade_str">Grade %d</string>
+    <string name="math">Mathematics</string>
+    <string name="history">History</string>
+    <string name="english">English</string>
+    <string name="assn_due">Assignments due this week</string>
+    <string name="sw_1">28/10/2022 Letter writing</string>
+    <string name="sw_2">22/10/2022 Algebra </string>
+    <string name="sw_3">25/10/2022 Statement</string>
+    <string name="sw_4">28/10/2022 Trigonometry</string>
+    <string name="sw_8">24/10/2022 Essay</string>
 </resources>

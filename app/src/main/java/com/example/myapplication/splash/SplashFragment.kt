@@ -46,7 +46,7 @@ class SplashFragment : Fragment() {
                 delay(2000)
                 visibility = View.GONE
                 parentFragmentManager.beginTransaction().apply {
-                    replace(R.id.container, LoginFragment.newInstance())
+                    replace(R.id.container, StudentsFragment.newInstance())
                     commit()
                 }
             }

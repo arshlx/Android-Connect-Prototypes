@@ -23,7 +23,6 @@ class PreferencesFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentPreferencesBinding.inflate(inflater, container, false)
-        requireActivity().title = getString(R.string.nav_preferences)
         return binding.root
     }
 

@@ -8,5 +8,5 @@ data class Assignment(
     @SerializedName("group_assignment") val isGroup: Boolean = false,
     val startDate: String,
     @SerializedName("assignment_duedate") val dueDate: String,
-    val desc: String
+    @SerializedName("assignment_description")val desc: String
 )

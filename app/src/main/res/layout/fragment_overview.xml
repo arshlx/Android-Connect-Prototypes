@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_fragment_bg"
     android:orientation="vertical"
+    android:padding="@dimen/space_normal"
     tools:context=".main.OverviewFragment">
-
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/space_normal"
         android:clipToPadding="true"
         android:elevation="@dimen/match_constraint"
         app:cardCornerRadius="@dimen/space_medium"
@@ -19,115 +19,82 @@
         app:strokeWidth="@dimen/width_divider">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/space_vlarge">
+            android:background="@color/white"
+            android:padding="@dimen/space_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/school_txt"
+            app:layout_constraintTop_toBottomOf="@+id/school_txt">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="@dimen/match_constraint"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_medium"
-                app:layout_constraintBottom_toBottomOf="@+id/div_i"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/div_i"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:itemCount="3"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_due_assignment" />
-
-
-            <TextView
-                android:id="@+id/num_assn_i"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/cardview_dark_background"
-                android:textSize="100sp"
-                android:textStyle="bold"
+            <ImageView
+                android:id="@+id/student_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/student_img"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="2" />
-
-            <View
-                android:id="@+id/div_i"
-                android:layout_width="@dimen/width_divider"
-                android:layout_height="@dimen/match_constraint"
-                android:layout_marginStart="@dimen/space_medium"
-                android:layout_marginBottom="@dimen/space_medium"
-                android:background="@color/color_divider"
-                app:layout_constraintBottom_toTopOf="@+id/label_txt"
-                app:layout_constraintStart_toEndOf="@+id/num_assn_i"
-                app:layout_constraintTop_toTopOf="parent" />
+                tools:src="@drawable/stu_1" />
 
             <TextView
-                android:id="@+id/label_txt"
+                android:id="@+id/name_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_medium"
+                android:layout_marginStart="@dimen/space_medium"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@+id/num_assn_i"
-                app:layout_constraintTop_toBottomOf="@id/num_assn_i"
-                tools:text="Assignments due in the next 2 weeks" />
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/student_img"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Omar Bawaneh" />
+
+            <TextView
+                android:id="@+id/school_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_medium"
+                android:layout_marginTop="@dimen/space_xsmall"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/student_img"
+                app:layout_constraintTop_toBottomOf="@id/name_txt"
+                tools:text="Malek Fahad School" />
+
+            <TextView
+                android:id="@+id/grade_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_medium"
+                android:layout_marginTop="@dimen/space_xsmall"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/student_img"
+                app:layout_constraintTop_toBottomOf="@id/school_txt"
+                tools:text="Grade 5"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/attendance_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_medium"
+                android:layout_marginTop="@dimen/space_xsmall"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/student_img"
+                app:layout_constraintTop_toBottomOf="@id/grade_txt"
+                tools:text="95% attendance"
+                tools:visibility="visible" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/space_normal"
-        android:clipToPadding="true"
-        android:elevation="@dimen/match_constraint"
-        app:cardCornerRadius="@dimen/space_medium"
-        app:strokeColor="@color/color_divider"
-        app:strokeWidth="@dimen/width_divider">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/space_vlarge">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="@dimen/match_constraint"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_medium"
-            app:layout_constraintBottom_toBottomOf="@+id/view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/view"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:itemCount="3"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_due_assignment" />
+    <include
+        android:id="@+id/sub_1"
+        layout="@layout/item_subject" />
 
-
-        <TextView
-            android:id="@+id/due_2w_assn_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/cardview_dark_background"
-            android:textSize="100sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="2" />
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="@dimen/width_divider"
-            android:layout_height="@dimen/match_constraint"
-            android:layout_marginStart="@dimen/space_medium"
-            android:layout_marginBottom="@dimen/space_medium"
-            android:background="@color/color_divider"
-            app:layout_constraintBottom_toTopOf="@+id/school_txt"
-            app:layout_constraintStart_toEndOf="@+id/due_2w_assn_txt"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/school_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_medium"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/due_2w_assn_txt"
-            app:layout_constraintTop_toBottomOf="@id/due_2w_assn_txt"
-            tools:text="Assignments due in the next 2 weeks" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+    <include
+        android:id="@+id/sub_2"
+        layout="@layout/item_subject" />
 
 </LinearLayout>

@@ -3,7 +3,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="match_constraint">0dp</dimen>
     <dimen name="width_divider">1dp</dimen>
-    <dimen name="space_xsmall">4dp</dimen>
+    <dimen name="space_xsmall">2dp</dimen>
     <dimen name="space_small">4dp</dimen>
     <dimen name="space_medium">8dp</dimen>
     <dimen name="space_high">12dp</dimen>

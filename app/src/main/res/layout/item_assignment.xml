@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:paddingVertical="@dimen/space_normal">
 
         <TextView
@@ -21,6 +22,7 @@
             android:layout_marginHorizontal="@dimen/space_normal"
             android:ellipsize="end"
             android:maxLines="1"
+            android:textAppearance="@style/text_style_lar_header01"
             app:layout_constraintEnd_toStartOf="@+id/due_date_txt"
             app:layout_constraintStart_toEndOf="@id/group_img"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,19 +30,27 @@
 
         <ImageView
             android:id="@+id/group_img"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/space_vlarge"
+            android:layout_height="@dimen/match_constraint"
             android:layout_marginStart="@dimen/space_normal"
             android:contentDescription="@string/group_activity_indicator"
+            android:cropToPadding="true"
             android:src="@drawable/vec_group_work"
+            app:layout_constraintBottom_toBottomOf="@+id/assn_name_txt"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/assn_name_txt"
+            app:tint="@color/black" />
 
         <TextView
             android:id="@+id/due_date_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/width_divider"
+            android:background="@drawable/rounded_rectangle_bg"
+            android:textColor="@color/white"
+            android:paddingHorizontal="@dimen/space_medium"
             android:layout_marginEnd="@dimen/space_normal"
+            android:textAppearance="@style/text_style_med_header02"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="01-10-2022" />
@@ -51,7 +61,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_normal"
             android:layout_marginTop="@dimen/space_medium"
+            android:ellipsize="end"
+            android:textAppearance="@style/text_style_desc02"
+            android:maxLines="1"
             app:layout_constraintTop_toBottomOf="@+id/assn_name_txt"
-            tools:layout_editor_absoluteX="16dp" />
+            tools:layout_editor_absoluteX="16dp"
+            tools:text="1700 Words essay" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

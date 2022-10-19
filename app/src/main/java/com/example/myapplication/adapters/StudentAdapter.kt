@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 import com.example.myapplication.databinding.ItemStudentBinding
 import com.example.myapplication.global_objects.Constants
 import com.example.myapplication.main.MainActivity
@@ -21,6 +22,13 @@ class StudentAdapter(private val fragment: Fragment, private val students: ListO
             binding.apply {
                 nameTxt.text = student.name
                 schoolTxt.text = student.school
+                studentImg.setImageResource(
+                    when (adapterPosition) {
+                        0 -> R.drawable.stu_3
+                        1 -> R.drawable.stu_1
+                        else -> R.drawable.stu_2
+                    }
+                )
                 container.setOnClickListener {
                     fragment.apply {
                         requireActivity().finish()
