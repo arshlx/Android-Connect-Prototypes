@@ -7,5 +7,8 @@ data class Student(
     @SerializedName("school_name") val school: String,
     @SerializedName("assignments") val assignments: List<Assignment>,
     @SerializedName("total_days") val totalDays: Int,
-    @SerializedName("total_attendence_days") val attendedDays: Int
+    @SerializedName("total_attendence_days") val attendedDays: Int,
+    @SerializedName("gender") val gender: String,
+    @SerializedName("grade") val grade: Int,
+    @SerializedName("image_url") val url: String
 )

@@ -24,4 +24,7 @@
     <string name="sw_3">25/10/2022 Statement</string>
     <string name="sw_4">28/10/2022 Trigonometry</string>
     <string name="sw_8">24/10/2022 Essay</string>
+    <string name="group_assn">Group</string>
+    <string name="details">Details</string>
+    <string name="view_assn">View submitted assignment</string>
 </resources>

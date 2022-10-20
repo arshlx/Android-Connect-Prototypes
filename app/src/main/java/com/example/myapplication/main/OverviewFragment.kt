@@ -41,7 +41,7 @@ class OverviewFragment : Fragment() {
             )
             gradeTxt.apply {
                 visibility = View.VISIBLE
-                text = getString(R.string.grade_str, viewModel.selStudent.attendedDays)
+                text = getString(R.string.grade_str, viewModel.selStudent.grade)
             }
             attendanceTxt.apply {
                 val attendance =

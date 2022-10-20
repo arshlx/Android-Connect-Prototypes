@@ -60,12 +60,12 @@ class MainActivity : AppCompatActivity(), PositionInterface {
 
     private fun exitApp() {
         if (exit) onBackPressed() else
-        CoroutineScope(Dispatchers.Main).launch {
-            exit = true
-            toast.show()
-            delay(2000)
-            exit = false
-        }
+            CoroutineScope(Dispatchers.Main).launch {
+                exit = true
+                toast.show()
+                delay(2000)
+                exit = false
+            }
     }
 
     private fun setUpBottomNav() {

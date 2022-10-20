@@ -34,7 +34,7 @@ class AssignmentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.assnRecycler.adapter =
-            AssignmentAdapter(viewModel.selStudent.assignments.toMutableList())
+            AssignmentAdapter(this, viewModel.selStudent.assignments.toMutableList())
     }
 
     override fun onDestroyView() {
