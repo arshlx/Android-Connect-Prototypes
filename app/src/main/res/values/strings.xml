@@ -18,7 +18,7 @@
     <string name="math">Mathematics</string>
     <string name="history">History</string>
     <string name="english">English</string>
-    <string name="assn_due">Assignments due this week</string>
+    <string name="assn_due">Assignments due within 7 days</string>
     <string name="sw_1">28/10/2022 Letter writing</string>
     <string name="sw_2">22/10/2022 Algebra </string>
     <string name="sw_3">25/10/2022 Statement</string>
@@ -27,4 +27,5 @@
     <string name="group_assn">Group</string>
     <string name="details">Details</string>
     <string name="view_assn">View submitted assignment</string>
+    <string name="assn_due_str">Assignments due for %s within the next 7 days</string>
 </resources>

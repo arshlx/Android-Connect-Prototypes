@@ -21,11 +21,16 @@ class AssignmentDetailActivity : AppCompatActivity() {
         assn = Gson().fromJson(intent.getStringExtra(Constants.ASSIGNMENT), Assignment::class.java)
         binding.apply {
             subjectTxt.text = assn.subject
-            assnNameTxt.text = assn.name
+            assnNameTxt.text = assn.assnName
             dueDateTxt.text = assn.dueDate
             descriptionTxt.text = assn.desc
             groupLayout.isVisible = assn.isGroup
             viewAssnBtn
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

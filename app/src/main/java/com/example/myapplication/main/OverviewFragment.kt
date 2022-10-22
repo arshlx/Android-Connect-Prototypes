@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.bumptech.glide.Glide
 import com.example.myapplication.R
+import com.example.myapplication.adapters.SubjectsAdapter
 import com.example.myapplication.databinding.FragmentOverviewBinding
 import com.example.myapplication.main.vm.MainViewModel
 
@@ -32,13 +34,7 @@ class OverviewFragment : Fragment() {
         binding.apply {
             nameTxt.text = viewModel.selStudent.name
             schoolTxt.text = viewModel.selStudent.school
-            studentImg.setImageResource(
-                when (viewModel.selStudent.name) {
-                    "James" -> R.drawable.stu_3
-                    "Jennifer" -> R.drawable.stu_1
-                    else -> R.drawable.stu_2
-                }
-            )
+            Glide.with(requireContext()).load(viewModel.selStudent.url).into(studentImg)
             gradeTxt.apply {
                 visibility = View.VISIBLE
                 text = getString(R.string.grade_str, viewModel.selStudent.grade)
@@ -49,25 +45,8 @@ class OverviewFragment : Fragment() {
                 visibility = View.VISIBLE
                 text = getString(R.string.attendance_str, attendance)
             }
-        }
-        setUpShowcase()
-    }
-
-    private fun setUpShowcase(){
-        binding.apply {
-            sub1.apply {
-                numAssnTxt.text = "2"
-                assn1.root.text = getString(R.string.sw_8)
-                assn2.root.text = getString(R.string.sw_1)
-                assn3.root.visibility = View.GONE
-            }
-            sub2.apply {
-                subjectTxt.text = getString(R.string.math)
-                numAssnTxt.text = "3"
-                assn1.root.text = getString(R.string.sw_2)
-                assn2.root.text = getString(R.string.sw_3)
-                assn3.root.text = getString(R.string.sw_4)
-            }
+            subjectRecycler.adapter =
+                SubjectsAdapter(this@OverviewFragment, viewModel.selStudent.subjects)
         }
     }
 

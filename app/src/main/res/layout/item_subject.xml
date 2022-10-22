@@ -12,6 +12,7 @@
     app:strokeWidth="@dimen/width_divider">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -40,38 +41,14 @@
             app:layout_constraintStart_toEndOf="@+id/div_i"
             app:layout_constraintTop_toTopOf="@+id/div_i" />
 
-        <LinearLayout
-            android:layout_width="@dimen/match_constraint"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_medium"
-            android:layout_marginTop="@dimen/space_medium"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/div_i"
-            app:layout_constraintTop_toBottomOf="@+id/label_txt">
-
-            <include
-                android:id="@+id/assn_1"
-                layout="@layout/item_due_assignment" />
-
-            <include
-                android:id="@+id/assn_2"
-                layout="@layout/item_due_assignment" />
-
-            <include
-                android:id="@+id/assn_3"
-                layout="@layout/item_due_assignment" />
-
-        </LinearLayout>
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/due_assn_recycler"
             android:layout_width="@dimen/match_constraint"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/match_constraint"
             android:layout_marginStart="@dimen/space_medium"
             android:layout_marginTop="@dimen/space_medium"
-            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/div_i"
             app:layout_constraintTop_toBottomOf="@+id/label_txt"
@@ -83,11 +60,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_normal"
-            android:text="2"
             android:textAppearance="@style/text_style_med_header01"
             android:textSize="100sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/subject_txt" />
+            app:layout_constraintTop_toBottomOf="@+id/subject_txt"
+            tools:text="2" />
 
         <View
             android:id="@+id/div_i"

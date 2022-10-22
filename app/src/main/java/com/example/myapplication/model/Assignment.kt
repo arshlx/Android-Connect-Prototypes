@@ -1,13 +1,25 @@
 package com.example.myapplication.model
 
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
-data class Assignment(
-    val id: String,
-    @SerializedName("assignment_name") val name: String,
-    @SerializedName("group_assignment") val isGroup: Boolean = false,
-    val startDate: String,
-    @SerializedName("subject") val subject: String,
-    @SerializedName("assignment_duedate") val dueDate: String,
-    @SerializedName("assignment_description")val desc: String
-)
+class Assignment {
+    val id = ""
+
+    @SerializedName("assignment_name")
+    val assnName = ""
+
+    @SerializedName("group_assignment")
+    val isGroup = false
+    val startDate = ""
+
+    @SerializedName("subject")
+    val subject = ""
+
+    @SerializedName("assignment_duedate")
+    val dueDate = ""
+
+    @SerializedName("assignment_description")
+    val desc = ""
+    var date = Date()
+}

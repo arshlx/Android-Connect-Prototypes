@@ -11,11 +11,9 @@ class DueAssignmentsAdapter(private val dueAssnList: List<Assignment>) :
 
     inner class DueAssignmentViewHolder(private val binding: ItemDueAssignmentBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        init {
+        fun bind(assignment: Assignment) {
 
         }
-
-        fun bind() {}
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DueAssignmentViewHolder {
@@ -27,7 +25,7 @@ class DueAssignmentsAdapter(private val dueAssnList: List<Assignment>) :
     }
 
     override fun onBindViewHolder(holder: DueAssignmentViewHolder, position: Int) {
-        holder.bind()
+        holder.bind(dueAssnList[position])
     }
 
     override fun getItemCount() = dueAssnList.size

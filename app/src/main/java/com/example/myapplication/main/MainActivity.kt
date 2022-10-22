@@ -1,14 +1,18 @@
 package com.example.myapplication.main
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import android.window.OnBackInvokedDispatcher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.example.myapplication.PositionInterface
 import com.example.myapplication.R
 import com.example.myapplication.adapters.FragmentPagerAdapter
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.global_objects.Constants
+import com.example.myapplication.global_objects.TaskStatus
 import com.example.myapplication.main.vm.MainViewModel
 import com.example.myapplication.model.ListOfStudents
 import com.example.myapplication.model.Student
@@ -36,22 +40,34 @@ class MainActivity : AppCompatActivity(), PositionInterface {
             studentList = Gson().fromJson(
                 intent.getStringExtra(Constants.STU_LIST), ListOfStudents::class.java
             ).stuList
+            listStatus.observe(this@MainActivity, listObserver)
             setUpAssnList()
         }
         toast = Toast.makeText(this, R.string.exit_warning, Toast.LENGTH_LONG)
-        setUpBottomNav()
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
+    override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
         binding.fragmentPager.apply {
             when (currentItem) {
                 0 -> exitApp()
                 else -> currentItem = 0
             }
         }
+        return super.getOnBackInvokedDispatcher()
     }
 
+
+    private val listObserver = Observer<String> {
+        when (it) {
+            TaskStatus.LOADING -> {
+                binding.progressBar.visibility = View.VISIBLE
+            }
+            TaskStatus.SUCCESS -> {
+                binding.progressBar.visibility = View.GONE
+                setUpBottomNav()
+            }
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()
@@ -59,7 +75,7 @@ class MainActivity : AppCompatActivity(), PositionInterface {
     }
 
     private fun exitApp() {
-        if (exit) onBackPressed() else
+        if (exit) finish() else
             CoroutineScope(Dispatchers.Main).launch {
                 exit = true
                 toast.show()
