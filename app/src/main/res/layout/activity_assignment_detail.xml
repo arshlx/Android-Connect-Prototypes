@@ -120,12 +120,13 @@
         android:layout_height="@dimen/width_divider"
         android:background="@color/color_divider"
         app:layout_constraintBottom_toTopOf="@+id/button_layout" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/button_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/space_normal"
         android:background="@color/color_fragment_bg"
+        android:paddingVertical="@dimen/space_normal"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
@@ -137,6 +138,6 @@
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

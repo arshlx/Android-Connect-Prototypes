@@ -10,5 +10,6 @@ data class Student(
     @SerializedName("total_attendance_days") val attendedDays: Int,
     @SerializedName("gender") val gender: String,
     @SerializedName("grade") val grade: Int,
-    @SerializedName("image_url") val url: String
+    @SerializedName("image_url") val url: String,
+    @SerializedName("assignments") val assignments: MutableList<Assignment>
 )

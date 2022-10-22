@@ -13,8 +13,6 @@ import com.example.myapplication.model.Assignment
 
 class AssignmentsFragment : Fragment() {
 
-    var assnList = mutableListOf<Assignment>()
-
     companion object {
         fun newInstance() = AssignmentsFragment()
     }
@@ -34,7 +32,7 @@ class AssignmentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.assnRecycler.adapter =
-            AssignmentAdapter(requireContext(), viewModel.assignmentList)
+            AssignmentAdapter(requireContext(), viewModel.selStudent.assignments)
     }
 
     override fun onDestroyView() {

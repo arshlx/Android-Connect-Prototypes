@@ -25,7 +25,6 @@ class AssignmentDetailActivity : AppCompatActivity() {
             dueDateTxt.text = assn.dueDate
             descriptionTxt.text = assn.desc
             groupLayout.isVisible = assn.isGroup
-            viewAssnBtn
         }
     }
 

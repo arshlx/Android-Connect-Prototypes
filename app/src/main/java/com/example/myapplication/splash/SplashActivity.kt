@@ -2,6 +2,7 @@ package com.example.myapplication.splash
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.databinding.ActivitySplashBinding
+import com.example.myapplication.global_objects.Constants
 import com.example.myapplication.splash.vm.SplashViewModel
 
 @SuppressLint("CustomSplashScreen")
@@ -21,11 +23,17 @@ class SplashActivity : AppCompatActivity() {
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
-         if (isGranted) {
+        if (isGranted) {
             // FCM SDK (and your app) can post notifications.
         } else {
             // TODO: Inform user that that your app will not show notifications.
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.loggedIn = getPreferences(Context.MODE_PRIVATE)
+            .getBoolean(Constants.LOGGED_IN, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +42,10 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[SplashViewModel::class.java]
         supportFragmentManager.beginTransaction().apply {
-            replace(binding.container.id, SplashFragment.newInstance())
+            replace(
+                binding.container.id,
+                SplashFragment.newInstance()
+            )
             commit()
         }
     }

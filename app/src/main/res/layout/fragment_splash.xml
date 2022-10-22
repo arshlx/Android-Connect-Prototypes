@@ -39,18 +39,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/space_vlarge"
-        android:indeterminateTint="@color/white"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/title_txt"
-        app:layout_constraintStart_toStartOf="@+id/title_txt"
-        app:layout_constraintTop_toBottomOf="@+id/title_txt"
-        tools:visibility="visible" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

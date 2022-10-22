@@ -1,5 +1,6 @@
 package com.example.myapplication.splash
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentLoginBinding
+import com.example.myapplication.global_objects.Constants.LOGGED_IN
 
 
 class LoginFragment : Fragment() {
@@ -45,9 +48,10 @@ class LoginFragment : Fragment() {
                         idEdt.text.toString().trim()
                             .equals(getString(R.string.id), false) && passwordEdt.text.toString()
                             .trim().equals(getString(R.string.pass), false) -> {
-                            parentFragmentManager.beginTransaction().apply {
+                            requireActivity().getPreferences(Context.MODE_PRIVATE).edit()
+                                .putBoolean(LOGGED_IN, true).apply()
+                            parentFragmentManager.commit {
                                 replace(R.id.container, StudentsFragment.newInstance())
-                                commit()
                             }
                         }
                         else -> Toast.makeText(

@@ -5,12 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.global_objects.TaskStatus
 import com.example.myapplication.model.ListOfStudents
-import com.example.myapplication.model.Student
 import kotlinx.coroutines.launch
 
 class SplashViewModel : ViewModel() {
     private val repository = SplashRepository()
     lateinit var students: ListOfStudents
+    var loggedIn = false
     val studentStatus = MutableLiveData(TaskStatus.NONE)
 
     fun getStudentList() {
