@@ -18,10 +18,6 @@ class SplashActivity : AppCompatActivity() {
     private val binding get() = _binding!!
     private lateinit var viewModel: SplashViewModel
 
-    override fun onStart() {
-        super.onStart()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivitySplashBinding.inflate(layoutInflater)
