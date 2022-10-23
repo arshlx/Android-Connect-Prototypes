@@ -5,6 +5,7 @@ import android.widget.Toast
 import android.window.OnBackInvokedDispatcher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
 import com.example.myapplication.PositionInterface
 import com.example.myapplication.R
 import com.example.myapplication.adapters.FragmentPagerAdapter
@@ -73,6 +74,16 @@ class MainActivity : AppCompatActivity(), PositionInterface {
             fragmentPager.apply {
                 adapter = pagerAdapter
                 currentItem = Constants.NAV_OVERVIEW
+                registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                    override fun onPageSelected(position: Int) {
+                        bottomNav.selectedItemId = when (position) {
+                            0 -> R.id.nav_overview
+                            1 -> R.id.nav_assignments
+                            else -> R.id.nav_preferences
+                        }
+                        super.onPageSelected(position)
+                    }
+                })
             }
             bottomNav.apply {
                 setOnItemSelectedListener {
@@ -82,11 +93,11 @@ class MainActivity : AppCompatActivity(), PositionInterface {
                             Constants.NAV_PREFERENCES
                         }
                         R.id.nav_assignments -> {
-                            title = getString(R.string.nav_preferences)
+                            title = getString(R.string.nav_assignments)
                             Constants.NAV_ASSIGNMENTS
                         }
                         else -> {
-                            title = getString(R.string.nav_preferences)
+                            title = getString(R.string.nav_overview)
                             Constants.NAV_OVERVIEW
                         }
                     }

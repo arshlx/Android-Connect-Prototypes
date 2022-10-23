@@ -6,19 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".main.MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/fragment_pager"
         android:layout_width="match_parent"
         android:layout_height="@dimen/match_constraint"
-        app:layout_constraintBottom_toBottomOf="@+id/container"
-        app:layout_constraintTop_toTopOf="@+id/container" />
+        app:layout_constraintBottom_toTopOf="@id/div"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -28,11 +21,18 @@
         android:layout_centerHorizontal="true"
         android:indeterminateTint="@color/color_divider"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/container"
-        app:layout_constraintEnd_toEndOf="@+id/container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
+
+    <View
+        android:id="@+id/div"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/width_divider"
+        android:background="@color/color_divider"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"

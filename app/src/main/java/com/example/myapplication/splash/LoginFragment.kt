@@ -12,6 +12,7 @@ import androidx.fragment.app.commit
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentLoginBinding
 import com.example.myapplication.global_objects.Constants.LOGGED_IN
+import com.example.myapplication.global_objects.Constants.LOGIN
 
 
 class LoginFragment : Fragment() {
@@ -48,7 +49,8 @@ class LoginFragment : Fragment() {
                         idEdt.text.toString().trim()
                             .equals(getString(R.string.id), false) && passwordEdt.text.toString()
                             .trim().equals(getString(R.string.pass), false) -> {
-                            requireActivity().getPreferences(Context.MODE_PRIVATE).edit()
+                            requireActivity().getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
+                                .edit()
                                 .putBoolean(LOGGED_IN, true).apply()
                             parentFragmentManager.commit {
                                 replace(R.id.container, StudentsFragment.newInstance())

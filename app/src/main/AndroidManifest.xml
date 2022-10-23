@@ -18,18 +18,14 @@
         tools:targetApi="33">
 
         <service
-            android:name="com.example.myapplication.services.MyFirebaseMessagingServices"
+            android:name="com.example.myapplication.services.MyFirebaseMessagingReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-
-            <meta-data
-                android:name="com.google.firebase.messaging.default_notification_icon"
-                android:resource="@drawable/vec_bullet_point" />
-            <meta-data
-                android:name="com.google.firebase.messaging.default_notification_color"
-                android:resource="@color/color_divider" />
+            <!--        <meta-data
+                        android:name="com.google.firebase.messaging.default_notification_channel_id"
+                        android:value="@string/default_notification_channel_id" />-->
         </service>
 
         <activity

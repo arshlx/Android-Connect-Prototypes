@@ -21,8 +21,7 @@ class PreferencesFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentPreferencesBinding.inflate(inflater, container, false)
@@ -32,10 +31,16 @@ class PreferencesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.logoutBtn.setOnClickListener {
-            requireActivity().getPreferences(Context.MODE_PRIVATE).edit()
-                .putBoolean(Constants.LOGGED_IN, false).apply()
-            requireActivity().finish()
-            startActivity(Intent(requireContext(), SplashActivity::class.java).putExtra(Constants.LOGGED_IN, false))
+            requireActivity().apply {
+                getSharedPreferences(Constants.LOGIN, Context.MODE_PRIVATE).edit()
+                    .putBoolean(Constants.LOGGED_IN, false).apply()
+                finish()
+            }
+            startActivity(
+                Intent(
+                    requireContext(), SplashActivity::class.java
+                ).putExtra(Constants.LOGGED_IN, false)
+            )
         }
     }
 

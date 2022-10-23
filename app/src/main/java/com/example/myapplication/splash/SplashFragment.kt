@@ -1,14 +1,15 @@
 package com.example.myapplication.splash
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentSplashBinding
+import com.example.myapplication.global_objects.Constants
 import com.example.myapplication.splash.vm.SplashViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -37,18 +38,19 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity())[SplashViewModel::class.java]
+        val prefs = requireActivity().getSharedPreferences(Constants.LOGIN, Context.MODE_PRIVATE)
+        viewModel.loggedIn = if (prefs.contains(Constants.LOGGED_IN))
+            prefs.getBoolean(Constants.LOGGED_IN, false) else false
         delayFunction()
     }
 
     private fun delayFunction() {
         CoroutineScope(Dispatchers.Main).launch {
-            delay(1500)
-            parentFragmentManager.commit {
-                replace(
-                    R.id.container,
-                    if (viewModel.loggedIn) StudentsFragment.newInstance() else LoginFragment.newInstance()
-                )
-            }
+            delay(2000)
+            parentFragmentManager.beginTransaction().replace(
+                R.id.container,
+                if (viewModel.loggedIn) StudentsFragment.newInstance() else LoginFragment.newInstance()
+            ).commit()
         }
     }
 }
