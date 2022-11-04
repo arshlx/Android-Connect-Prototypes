@@ -1,5 +1,6 @@
 package com.example.myapplication.splash.vm
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,6 +18,15 @@ class SplashViewModel : ViewModel() {
         studentStatus.value = TaskStatus.LOADING
         viewModelScope.launch {
             val result = repository.getStudentList()
+            students = ListOfStudents(result.second)
+            studentStatus.value = result.first
+        }
+    }
+
+    fun initStudentList(context: Context) {
+        studentStatus.value = TaskStatus.LOADING
+        viewModelScope.launch {
+          val result = repository.getStudentsFromFile(context)
             students = ListOfStudents(result.second)
             studentStatus.value = result.first
         }

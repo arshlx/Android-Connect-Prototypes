@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ItemStudentBinding
 import com.example.myapplication.global_objects.Constants
@@ -23,13 +22,13 @@ class StudentAdapter(private val fragment: Fragment, private val students: ListO
             binding.apply {
                 nameTxt.text = student.name
                 schoolTxt.text = student.school
-                /*studentImg.setImageResource(
+                studentImg.setImageResource(
                     when (adapterPosition) {
                         0 -> R.drawable.stu_3
                         1 -> R.drawable.stu_1
                         else -> R.drawable.stu_2
                     }
-                )*/
+                )
                 container.setOnClickListener {
                     fragment.apply {
                         requireActivity().finish()
@@ -42,7 +41,7 @@ class StudentAdapter(private val fragment: Fragment, private val students: ListO
                         )
                     }
                 }
-                Glide.with(fragment.requireContext()).load(student.url).into(studentImg)
+//                Glide.with(fragment.requireContext()).load(student.url).into(studentImg)
             }
         }
     }

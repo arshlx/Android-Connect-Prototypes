@@ -29,4 +29,5 @@
     <string name="view_assn">View submitted assignment</string>
     <string name="assn_due_str">Assignments due for %s within the next 7 days</string>
     <string name="log_out">Log out</string>
+    <string name="select_linked_student">Please select a student</string>
 </resources>

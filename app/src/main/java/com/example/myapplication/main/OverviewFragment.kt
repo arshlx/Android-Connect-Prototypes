@@ -34,7 +34,12 @@ class OverviewFragment : Fragment() {
         binding.apply {
             nameTxt.text = viewModel.selStudent.name
             schoolTxt.text = viewModel.selStudent.school
-            Glide.with(requireContext()).load(viewModel.selStudent.url).into(studentImg)
+            studentImg.setImageResource(when(viewModel.selStudent.name){
+                "James" -> R.drawable.stu_3
+                "Jennifer" -> R.drawable.stu_1
+                else -> R.drawable.stu_2
+            })
+//            Glide.with(requireContext()).load(viewModel.selStudent.url).into(studentImg)
             gradeTxt.apply {
                 visibility = View.VISIBLE
                 text = getString(R.string.grade_str, viewModel.selStudent.grade)

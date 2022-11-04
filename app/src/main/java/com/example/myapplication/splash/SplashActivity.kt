@@ -21,6 +21,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivitySplashBinding.inflate(layoutInflater)
+        supportActionBar?.hide()
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[SplashViewModel::class.java]
         supportFragmentManager.beginTransaction().apply {

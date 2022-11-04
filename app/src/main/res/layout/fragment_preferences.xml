@@ -9,7 +9,7 @@
     <Button
         android:id="@+id/logout_btn"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/btn_height"
         android:layout_marginHorizontal="@dimen/space_normal"
         android:text="@string/log_out"
         android:textAllCaps="false"

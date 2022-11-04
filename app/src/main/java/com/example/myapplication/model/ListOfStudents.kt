@@ -1,3 +1,5 @@
 package com.example.myapplication.model
 
-data class ListOfStudents (val stuList: List<Student>)
+import com.google.gson.annotations.SerializedName
+
+data class ListOfStudents (@SerializedName("students") val stuList: List<Student>)

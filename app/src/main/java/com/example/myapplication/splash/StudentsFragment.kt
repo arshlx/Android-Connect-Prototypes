@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.myapplication.R
 import com.example.myapplication.adapters.StudentAdapter
 import com.example.myapplication.databinding.FragmentStudentsBinding
 import com.example.myapplication.global_objects.TaskStatus
@@ -32,9 +33,12 @@ class StudentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity())[SplashViewModel::class.java]
+        requireActivity().setActionBar(binding.toolbar)
+        requireActivity().title = getString(R.string.linked_students)
         viewModel.apply {
             studentStatus.observe(viewLifecycleOwner, studentObserver)
-            getStudentList()
+//            getStudentList()
+            initStudentList(requireContext())
         }
     }
 
