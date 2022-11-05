@@ -50,8 +50,11 @@ class OverviewFragment : Fragment() {
                 visibility = View.VISIBLE
                 text = getString(R.string.attendance_str, attendance)
             }
-            subjectRecycler.adapter =
-                SubjectsAdapter(this@OverviewFragment, viewModel.selStudent.subjects)
+            subjectRecycler.apply {
+                scheduleLayoutAnimation()
+                adapter =
+                    SubjectsAdapter(this@OverviewFragment, viewModel.selStudent.subjects)
+            }
         }
     }
 

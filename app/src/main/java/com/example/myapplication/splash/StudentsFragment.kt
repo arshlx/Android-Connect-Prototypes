@@ -48,9 +48,14 @@ class StudentsFragment : Fragment() {
                 binding.progressBar.visibility = View.VISIBLE
             }
             TaskStatus.SUCCESS -> {
-                binding.progressBar.visibility = View.GONE
-                binding.studentRecycler.adapter =
-                    StudentAdapter(this@StudentsFragment, viewModel.students)
+                binding.apply {
+                    progressBar.visibility = View.GONE
+                    studentRecycler.apply {
+                        scheduleLayoutAnimation()
+                        adapter =
+                            StudentAdapter(this@StudentsFragment, viewModel.students)
+                    }
+                }
             }
         }
     }

@@ -79,7 +79,7 @@
                 android:contentDescription="@string/group_activity_indicator"
                 android:cropToPadding="true"
                 android:src="@drawable/vec_group_work"
-                app:tint="@color/black" />
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -88,7 +88,8 @@
                 android:layout_marginStart="@dimen/space_medium"
                 android:gravity="center_vertical"
                 android:text="@string/group_assn"
-                android:textAppearance="@style/text_style_med_header01" />
+                android:textAppearance="@style/text_style_med_header01"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

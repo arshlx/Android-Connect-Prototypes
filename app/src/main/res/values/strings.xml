@@ -9,7 +9,8 @@
     <string name="log_in">Log In</string>
     <string name="id" tools:ignore="Typos">TestId1</string>
     <string name="pass">Password.1</string>
-    <string name="incorrect_id_password">Incorrect ID or password</string>
+    <string name="incorrect_id">Invalid ID</string>
+    <string name="incorrect_password">Incorrect Password</string>
     <string name="linked_students">Linked Students</string>
     <string name="exit_warning">Press back again to exit</string>
     <string name="student_img">Student profile image.</string>

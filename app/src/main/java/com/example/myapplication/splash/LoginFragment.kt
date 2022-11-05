@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
@@ -46,19 +45,21 @@ class LoginFragment : Fragment() {
             loginBtn.setOnClickListener {
                 if (!idEdt.text.isNullOrEmpty() && !passwordEdt.text.isNullOrEmpty()) {
                     when {
-                        idEdt.text.toString().trim()
-                            .equals(getString(R.string.id), false) && passwordEdt.text.toString()
+                        !idEdt.text.toString().trim()
+                            .equals(getString(R.string.id), false) -> {
+                            idEdtLayout.error = getString(R.string.incorrect_id)
+                        }
+                        !passwordEdt.text.toString()
                             .trim().equals(getString(R.string.pass), false) -> {
+                            passwordEdtLayout.error = getString(R.string.incorrect_password)
+                        }
+                        else -> {
                             requireActivity().getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
-                                .edit()
-                                .putBoolean(LOGGED_IN, true).apply()
+                                .edit().putBoolean(LOGGED_IN, true).apply()
                             parentFragmentManager.commit {
                                 replace(R.id.container, StudentsFragment.newInstance())
                             }
                         }
-                        else -> Toast.makeText(
-                            requireContext(), R.string.incorrect_id_password, Toast.LENGTH_LONG
-                        ).show()
                     }
                 }
             }
@@ -67,8 +68,8 @@ class LoginFragment : Fragment() {
 
     private fun resetErrors() {
         binding.apply {
-            idEdt.error = null
-            passwordEdt.error = null
+            idEdtLayout.error = null
+            passwordEdtLayout.error = null
         }
     }
 

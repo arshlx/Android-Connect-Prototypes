@@ -32,7 +32,7 @@ class SubjectAssignmentActivity : AppCompatActivity() {
 
     private fun setUpViews() {
         binding.apply {
-            subjectTxt.text = subName
+            supportActionBar?.title = subName
             labelTxt.text = getString(R.string.assn_due_str, subName)
             assnRecycler.adapter =
                 AssignmentAdapter(this@SubjectAssignmentActivity, assignmentList.toMutableList())

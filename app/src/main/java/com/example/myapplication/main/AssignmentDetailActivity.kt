@@ -20,7 +20,7 @@ class AssignmentDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         assn = Gson().fromJson(intent.getStringExtra(Constants.ASSIGNMENT), Assignment::class.java)
         binding.apply {
-            subjectTxt.text = assn.subject
+            supportActionBar?.title = assn.subject
             assnNameTxt.text = assn.assnName
             dueDateTxt.text = assn.dueDate
             descriptionTxt.text = assn.desc

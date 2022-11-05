@@ -13,26 +13,27 @@
         android:background="@color/purple_500"
         android:title="@string/linked_students"
         android:titleTextColor="@color/white"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/space_normal"
         android:layout_marginTop="@dimen/space_normal"
         android:text="@string/select_linked_student"
-        android:textAppearance="@style/text_style_lar_header02"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+        android:textAppearance="@style/text_style_lar_header01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_normal"
+        android:layout_marginBottom="@dimen/btn_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="@dimen/space_normal"
-        android:layout_marginEnd="@dimen/space_normal"
+        app:layout_constraintStart_toStartOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_fileName="children_list_anim.json"
         app:lottie_loop="true" />
@@ -41,6 +42,7 @@
         android:id="@+id/student_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layoutAnimation="@anim/layout_anim_fall_down_slow"
         android:paddingVertical="@dimen/space_medium"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"

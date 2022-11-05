@@ -7,7 +7,7 @@
       "grade": 6,
       "image_url": "https://acps-connect-api.s3.ap-southeast-2.amazonaws.com/stu_james.jpg",
       "total_days": 120,
-      "total_attendence_days": 110,
+      "total_attendance_days": 110,
       "subjects": [
         {
           "subject_name": "Mathematics",
@@ -143,7 +143,7 @@
       "image_url": "https://acps-connect-api.s3.ap-southeast-2.amazonaws.com/stu_jennifer.jpg",
       "grade": 4,
       "total_days": 120,
-      "total_attendence_days": 90,
+      "total_attendance_days": 90,
       "subjects": [
         {
           "subject_name": "Mathematics",
@@ -286,7 +286,7 @@
       "image_url": "https://acps-connect-api.s3.ap-southeast-2.amazonaws.com/stu_robert.jpg",
       "grade": 5,
       "total_days": 120,
-      "total_attendence_days": 95,
+      "total_attendance_days": 95,
       "subjects": [
         {
           "subject_name": "Mathematics",
