@@ -22,6 +22,10 @@ class SubjectAssignmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivitySubjectAssignmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.apply {
+            setHomeAsUpIndicator(R.drawable.vec_arrow_back)
+            setDisplayHomeAsUpEnabled(true)
+        }
         subName = intent.getStringExtra(SEL_SUBJECT)!!
         assignmentList = Gson().fromJson(
             intent.getStringExtra(Constants.ASSIGNMENT_LIST),

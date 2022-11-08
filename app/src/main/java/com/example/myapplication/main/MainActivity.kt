@@ -1,8 +1,10 @@
 package com.example.myapplication.main
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
-import android.window.OnBackInvokedDispatcher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -41,16 +43,28 @@ class MainActivity : AppCompatActivity(), PositionInterface {
             setUpBottomNav()
         }
         toast = Toast.makeText(this, R.string.exit_warning, Toast.LENGTH_LONG)
+        binding.sendEmail.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SENDTO).apply {
+                data = Uri.parse("mailto:") // only email apps should handle this
+                putExtra(Intent.EXTRA_EMAIL, "arshdeep100@gmail.com")
+            }
+            try {
+                startActivity(intent)
+            } catch (ex: ActivityNotFoundException) {
+                Toast.makeText(this, R.string.application_not_found, Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
-    override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
+
+    override fun onBackPressed() {
+        super.onBackPressed()
         binding.fragmentPager.apply {
             when (currentItem) {
                 0 -> exitApp()
                 else -> currentItem = 0
             }
         }
-        return super.getOnBackInvokedDispatcher()
     }
 
     override fun onDestroy() {
@@ -60,7 +74,7 @@ class MainActivity : AppCompatActivity(), PositionInterface {
 
     private fun exitApp() {
         if (exit) finish() else
-            CoroutineScope(Dispatchers.Main).launch {
+            CoroutineScope(Dispatchers.IO).launch {
                 exit = true
                 toast.show()
                 delay(2000)
@@ -90,14 +104,17 @@ class MainActivity : AppCompatActivity(), PositionInterface {
                     fragmentPager.currentItem = when (it.itemId) {
                         R.id.nav_preferences -> {
                             title = getString(R.string.nav_preferences)
+                            binding.sendEmail.hide()
                             Constants.NAV_PREFERENCES
                         }
                         R.id.nav_assignments -> {
                             title = getString(R.string.nav_assignments)
+                            binding.sendEmail.hide()
                             Constants.NAV_ASSIGNMENTS
                         }
                         else -> {
                             title = getString(R.string.nav_overview)
+                            binding.sendEmail.show()
                             Constants.NAV_OVERVIEW
                         }
                     }
