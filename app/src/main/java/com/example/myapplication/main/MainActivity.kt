@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.example.myapplication.PositionInterface
+import com.example.myapplication.ingterfaces.PositionInterface
 import com.example.myapplication.R
 import com.example.myapplication.adapters.FragmentPagerAdapter
 import com.example.myapplication.databinding.ActivityMainBinding

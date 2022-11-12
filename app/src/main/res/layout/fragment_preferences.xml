@@ -3,17 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/color_fragment_bg"
     android:layout_height="match_parent"
     tools:context=".main.PreferencesFragment">
 
-    <Button
-        android:id="@+id/logout_btn"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/prefs_recycler"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/btn_height"
-        android:layout_marginHorizontal="@dimen/space_normal"
-        android:text="@string/log_out"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="4"
+        tools:layout_editor_absoluteX="8dp"
+        tools:listitem="@layout/item_preference" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

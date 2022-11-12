@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.myapplication.PositionInterface
+import com.example.myapplication.ingterfaces.PositionInterface
 import com.example.myapplication.global_objects.Constants.NAV_ASSIGNMENTS
 import com.example.myapplication.global_objects.Constants.NAV_DISCUSSION
 import com.example.myapplication.global_objects.Constants.NAV_NUM_TOTAL

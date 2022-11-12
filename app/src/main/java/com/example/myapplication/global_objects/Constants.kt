@@ -9,6 +9,7 @@ object Constants {
     const val ASSIGNMENT_LIST = "assignment list"
     const val LOGIN = "login"
     const val LOGGED_IN = "login state"
+    const val PREFERENCE = "preference"
     const val NAV_NUM_TOTAL = 4
     const val NAV_OVERVIEW = 0
     const val NAV_ASSIGNMENTS = 1

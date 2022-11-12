@@ -34,4 +34,13 @@
     <string name="email">Email</string>
     <string name="application_not_found">No email applications found</string>
     <string name="nav_discussion">Discussion</string>
+    <string name="setting_img">Settings image</string>
+    <string name="acc_info">Account information</string>
+    <string name="notification_prefs">Notification preferences</string>
+    <string name="track_location">Track student location</string>
+    <string name="help">Help</string>
+    <string name="change_student">Change student</string>
+    <string name="logout_warning">Are you sure you want to logout of your account?</string>
+    <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
 </resources>
