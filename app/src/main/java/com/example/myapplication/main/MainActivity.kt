@@ -73,13 +73,12 @@ class MainActivity : AppCompatActivity(), PositionInterface {
     }
 
     private fun exitApp() {
-        if (exit) finish() else
-            CoroutineScope(Dispatchers.IO).launch {
-                exit = true
-                toast.show()
-                delay(2000)
-                exit = false
-            }
+        if (exit) finish() else CoroutineScope(Dispatchers.IO).launch {
+            exit = true
+            toast.show()
+            delay(2000)
+            exit = false
+        }
     }
 
     private fun setUpBottomNav() {
@@ -93,6 +92,7 @@ class MainActivity : AppCompatActivity(), PositionInterface {
                         bottomNav.selectedItemId = when (position) {
                             0 -> R.id.nav_overview
                             1 -> R.id.nav_assignments
+                            2 -> R.id.nav_discussion
                             else -> R.id.nav_preferences
                         }
                         super.onPageSelected(position)
@@ -105,16 +105,25 @@ class MainActivity : AppCompatActivity(), PositionInterface {
                         R.id.nav_preferences -> {
                             title = getString(R.string.nav_preferences)
                             binding.sendEmail.hide()
+                            startChat.hide()
                             Constants.NAV_PREFERENCES
                         }
                         R.id.nav_assignments -> {
                             title = getString(R.string.nav_assignments)
-                            binding.sendEmail.hide()
+                            sendEmail.hide()
+                            startChat.hide()
                             Constants.NAV_ASSIGNMENTS
+                        }
+                        R.id.nav_discussion -> {
+                            title = getString(R.string.nav_discussion)
+                            sendEmail.hide()
+                            startChat.show()
+                            Constants.NAV_DISCUSSION
                         }
                         else -> {
                             title = getString(R.string.nav_overview)
                             binding.sendEmail.show()
+                            startChat.hide()
                             Constants.NAV_OVERVIEW
                         }
                     }

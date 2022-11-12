@@ -9,6 +9,10 @@
         android:title="@string/nav_assignments"
         android:icon="@drawable/selector_assignments"/>
     <item
+        android:id="@+id/nav_discussion"
+        android:title="@string/nav_discussion"
+        android:icon="@drawable/selector_discussion"/>
+    <item
         android:id="@+id/nav_preferences"
         android:title="@string/nav_preferences"
         android:icon="@drawable/selector_preferences"/>

@@ -41,6 +41,20 @@
         app:maxImageSize="@dimen/size_action_btn_icon"
         app:tint="@color/white" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/start_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_normal"
+        android:layout_marginBottom="@dimen/space_normal"
+        android:contentDescription="@string/email"
+        android:src="@drawable/vec_chat"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintBottom_toTopOf="@id/div"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/size_action_btn_icon_adjusted"
+        app:tint="@color/white" />
+
     <View
         android:id="@+id/div"
         android:layout_width="match_parent"

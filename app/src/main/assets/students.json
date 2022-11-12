@@ -114,17 +114,17 @@
           "group_assignment": false
         },
         {
-          "assignment_name": "Imaginative Text",
-          "assignment_description": "Students compose a short narrative in response to one of a selection of stimulus items related to the concept of the monster which has been the focus of recent study.",
-          "assignment_duedate": "11-11-2022",
-          "subject": "English",
-          "group_assignment": false
-        },
-        {
           "assignment_name": "Medieval Holidays and Festivals",
           "assignment_description": "Students research some of the holidays and festivals of the Middle Ages and compare their relevance to medieval and modern Australian society.",
           "assignment_duedate": "11-04-2022",
           "subject": "History",
+          "group_assignment": false
+        },
+        {
+          "assignment_name": "Imaginative Text",
+          "assignment_description": "Students compose a short narrative in response to one of a selection of stimulus items related to the concept of the monster which has been the focus of recent study.",
+          "assignment_duedate": "11-11-2022",
+          "subject": "English",
           "group_assignment": false
         },
         {
@@ -201,7 +201,7 @@
             {
               "assignment_name": "Nile River Descriptive Report",
               "assignment_description": "Students are to write a one-page descriptive report of life along the Nile.",
-              "assignment_duedate": "11-04-2022",
+              "assignment_duedate": "10-28-2022",
               "subject": "History",
               "group_assignment": false
             },
@@ -229,11 +229,11 @@
       ],
       "assignments": [
         {
-          "assignment_name": "Operations with fractions",
-          "assignment_description": "Communicates and connects mathematical ideas using appropriate terminology, diagrams and symbols.",
+          "assignment_name": "Tunnel patterns",
+          "assignment_description": "Students are given a number of diagrams representing the modelling of a geometric pattern. They draw a diagram to represent their construction of the next structure required to continue the pattern. They then complete a table of values and determine a rule to describe the pattern, providing an explanation of how they obtained the rule.",
           "assignment_duedate": "10-21-2022",
           "subject": "Mathematics",
-          "group_assignment": false
+          "group_assignment": true
         },
         {
           "assignment_name": "Coping Strategy Scenario",
@@ -257,9 +257,16 @@
           "group_assignment": false
         },
         {
+          "assignment_name": "Nile River Descriptive Report",
+          "assignment_description": "Students are to write a one-page descriptive report of life along the Nile.",
+          "assignment_duedate": "11-04-2022",
+          "subject": "History",
+          "group_assignment": false
+        },
+        {
           "assignment_name": "Imaginative Text",
           "assignment_description": "Students compose a short narrative in response to one of a selection of stimulus items related to the concept of the monster which has been the focus of recent study.",
-          "assignment_duedate": "11-11-2022",
+          "assignment_duedate": "11-04-2022",
           "subject": "English",
           "group_assignment": false
         },
@@ -271,11 +278,11 @@
           "group_assignment": false
         },
         {
-          "assignment_name": "Tunnel patterns",
-          "assignment_description": "Students are given a number of diagrams representing the modelling of a geometric pattern. They draw a diagram to represent their construction of the next structure required to continue the pattern. They then complete a table of values and determine a rule to describe the pattern, providing an explanation of how they obtained the rule.",
+          "assignment_name": "Life writing",
+          "assignment_description": "Students select a piece of their writing for a life writing competition. They include an evaluation of the merits and appropriateness of the piece of writing in relation to audience, purpose, ideas, style, language forms and features, and textual structure.",
           "assignment_duedate": "11-11-2022",
-          "subject": "Mathematics",
-          "group_assignment": true
+          "subject": "English",
+          "group_assignment": false
         }
       ]
     },
@@ -339,7 +346,7 @@
             {
               "assignment_name": "Nile River Descriptive Report",
               "assignment_description": "Students are to write a one-page descriptive report of life along the Nile.",
-              "assignment_duedate": "11-04-2022",
+              "assignment_duedate": "11-11-2022",
               "subject": "History",
               "group_assignment": false
             }
@@ -374,15 +381,8 @@
         {
           "assignment_name": "Operations with fractions",
           "assignment_description": "Communicates and connects mathematical ideas using appropriate terminology, diagrams and symbols.",
-          "assignment_duedate": "10-21-2022",
-          "subject": "Mathematics",
-          "group_assignment": false
-        },
-        {
-          "assignment_name": "Coping Strategy Scenario",
-          "assignment_description": "Students read each scenario and provide a written response suggesting a strategy for coping with this situation.",
           "assignment_duedate": "10-28-2022",
-          "subject": "Personal Development, Health and Physical Education",
+          "subject": "Mathematics",
           "group_assignment": false
         },
         {
@@ -393,6 +393,13 @@
           "group_assignment": true
         },
         {
+          "assignment_name": "Medieval Holidays and Festivals",
+          "assignment_description": "Students research some of the holidays and festivals of the Middle Ages and compare their relevance to medieval and modern Australian society.",
+          "assignment_duedate": "11-04-2022",
+          "subject": "History",
+          "group_assignment": false
+        },
+        {
           "assignment_name": "Presentation",
           "assignment_duedate": "11-04-2022",
           "assignment_description": "Students work independently or collaboratively to create a presentation illustrating their understanding and interpretation of the stimulus statement. Stimulus statement - Our everyday lives are affected by global connections",
@@ -400,18 +407,25 @@
           "group_assignment": false
         },
         {
+          "assignment_name": "Nile River Descriptive Report",
+          "assignment_description": "Students are to write a one-page descriptive report of life along the Nile.",
+          "assignment_duedate": "11-04-2022",
+          "subject": "History",
+          "group_assignment": false
+        },
+        {
           "assignment_name": "Imaginative Text",
           "assignment_description": "Students compose a short narrative in response to one of a selection of stimulus items related to the concept of the monster which has been the focus of recent study.",
-          "assignment_duedate": "11-11-2022",
+          "assignment_duedate": "11-04-2022",
           "subject": "English",
           "group_assignment": false
         },
         {
-          "assignment_name": "Medieval Holidays and Festivals",
-          "assignment_description": "Students research some of the holidays and festivals of the Middle Ages and compare their relevance to medieval and modern Australian society.",
-          "assignment_duedate": "11-04-2022",
-          "subject": "History",
-          "group_assignment": false
+          "assignment_name": "Vertebrate Poster",
+          "assignment_description": "Students gather and summarise information about a named vertebrate using a range of sources.",
+          "assignment_duedate": "11-11-2022",
+          "subject": "Science",
+          "group_assignment": true
         },
         {
           "assignment_name": "Tunnel patterns",

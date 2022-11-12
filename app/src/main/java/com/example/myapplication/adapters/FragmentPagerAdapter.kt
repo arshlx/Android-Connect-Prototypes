@@ -6,10 +6,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.myapplication.PositionInterface
 import com.example.myapplication.global_objects.Constants.NAV_ASSIGNMENTS
+import com.example.myapplication.global_objects.Constants.NAV_DISCUSSION
 import com.example.myapplication.global_objects.Constants.NAV_NUM_TOTAL
 import com.example.myapplication.global_objects.Constants.NAV_OVERVIEW
 import com.example.myapplication.global_objects.Constants.NAV_PREFERENCES
 import com.example.myapplication.main.AssignmentsFragment
+import com.example.myapplication.main.DiscussionFragment
 import com.example.myapplication.main.OverviewFragment
 import com.example.myapplication.main.PreferencesFragment
 
@@ -29,10 +31,16 @@ class FragmentPagerAdapter(
             }
             NAV_ASSIGNMENTS -> {
                 listener.onPositionChanged(NAV_ASSIGNMENTS)
-                AssignmentsFragment.newInstance()}
+                AssignmentsFragment.newInstance()
+            }
+            NAV_DISCUSSION -> {
+                listener.onPositionChanged(NAV_DISCUSSION)
+                DiscussionFragment.newInstance()
+            }
             else -> {
                 listener.onPositionChanged(NAV_PREFERENCES)
-                PreferencesFragment.newInstance()}
+                PreferencesFragment.newInstance()
+            }
         }
     }
 
