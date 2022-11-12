@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ItemPreferenceBinding
 import com.example.myapplication.global_objects.Constants
-import com.example.myapplication.ingterfaces.TagPositionInterface
+import com.example.myapplication.interfaces.TagPositionInterface
 
 class PreferencesAdapter(private val clickInterface: TagPositionInterface) :
     RecyclerView.Adapter<PreferencesAdapter.ViewHolder>() {
@@ -19,6 +19,7 @@ class PreferencesAdapter(private val clickInterface: TagPositionInterface) :
             add(Pair(R.drawable.vec_notification_prefs, R.string.notification_prefs))
             add(Pair(R.drawable.vec_track_location, R.string.track_location))
             add(Pair(R.drawable.vec_help, R.string.help))
+            add(Pair(R.drawable.vec_calendar, R.string.appointments))
             add(Pair(R.drawable.vec_logout, R.string.log_out))
         }
     }

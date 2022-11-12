@@ -16,6 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="33">
+        <activity
+            android:name=".AppointmentsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
 
         <service
             android:name="com.example.myapplication.services.MyFirebaseMessagingReceiver"
@@ -30,23 +37,22 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.myapplication.main.MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:name=".MainActivity"
+            android:exported="false"></activity>
         <activity
-            android:name="com.example.myapplication.main.AssignmentDetailActivity"
+            android:name=".AssignmentDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.myapplication.main.SubjectAssignmentActivity"
+            android:name=".SubjectAssignmentActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.myapplication.databinding.BottomSheetYesNoBinding
-import com.example.myapplication.ingterfaces.TagPositionInterface
+import com.example.myapplication.interfaces.TagPositionInterface
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class YesNoBottomSheet(

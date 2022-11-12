@@ -7,13 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.adapters.PreferencesAdapter
+import com.example.myapplication.bottom_sheets.StudentSelectBottomSheet
 import com.example.myapplication.bottom_sheets.YesNoBottomSheet
 import com.example.myapplication.databinding.FragmentPreferencesBinding
 import com.example.myapplication.global_objects.Constants
-import com.example.myapplication.ingterfaces.TagPositionInterface
+import com.example.myapplication.interfaces.TagPositionInterface
+import com.example.myapplication.main.vm.MainViewModel
 import com.example.myapplication.splash.SplashActivity
 
 class PreferencesFragment : Fragment(), TagPositionInterface {
@@ -24,6 +27,7 @@ class PreferencesFragment : Fragment(), TagPositionInterface {
 
     private var _binding: FragmentPreferencesBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -51,10 +55,16 @@ class PreferencesFragment : Fragment(), TagPositionInterface {
             Constants.PREFERENCE -> {
                 when (position) {
                     0 -> {}
-                    1 -> {}
+                    1 -> {
+                        StudentSelectBottomSheet(viewModel.studentList).show(
+                            parentFragmentManager,
+                            ""
+                        )
+                    }
                     2 -> {}
                     3 -> {}
                     4 -> {}
+                    5 -> {}
                     else -> {
                         YesNoBottomSheet(
                             this,

@@ -1,4 +1,4 @@
-package com.example.myapplication.ingterfaces
+package com.example.myapplication.interfaces
 
 interface PositionInterface {
     fun onPositionChanged(position: Int)
