@@ -12,17 +12,11 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/vec_scholar"
         android:label="@string/connect_plus"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/vec_scholar"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="33">
-        <activity
-            android:name=".AppointmentsActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
 
         <service
             android:name="com.example.myapplication.services.MyFirebaseMessagingReceiver"
@@ -42,17 +36,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:name="com.example.myapplication.main.MainActivity"
+            android:exported="false" />
         <activity
-            android:name=".AssignmentDetailActivity"
+            android:name="com.example.myapplication.main.AssignmentDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SubjectAssignmentActivity"
+            android:name="com.example.myapplication.main.SubjectAssignmentActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.myapplication.appointments.AppointmentsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

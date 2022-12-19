@@ -19,10 +19,10 @@ class AppointmentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityAppointmentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel.apply {
-            listStatus.observe(this@AppointmentsActivity, appointmentObserver)
-            initAppointments()
-        }
+//        viewModel.apply {
+//            listStatus.observe(this@AppointmentsActivity, appointmentObserver)
+//            initAppointments()
+//        }
     }
 
     private val appointmentObserver = Observer<String> {

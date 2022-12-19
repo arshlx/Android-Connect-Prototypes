@@ -20,7 +20,6 @@ class PreferencesAdapter(private val clickInterface: TagPositionInterface) :
             add(Pair(R.drawable.vec_track_location, R.string.track_location))
             add(Pair(R.drawable.vec_help, R.string.help))
             add(Pair(R.drawable.vec_calendar, R.string.appointments))
-            add(Pair(R.drawable.vec_logout, R.string.log_out))
         }
     }
 

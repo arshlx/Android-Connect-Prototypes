@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.adapters.PreferencesAdapter
+import com.example.myapplication.appointments.AppointmentsActivity
 import com.example.myapplication.bottom_sheets.StudentSelectBottomSheet
 import com.example.myapplication.bottom_sheets.YesNoBottomSheet
 import com.example.myapplication.databinding.FragmentPreferencesBinding
@@ -39,9 +40,21 @@ class PreferencesFragment : Fragment(), TagPositionInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.prefsRecycler.apply {
-            layoutManager = GridLayoutManager(requireContext(), 2)
-            adapter = PreferencesAdapter(this@PreferencesFragment)
+        binding.apply {
+            logoutLayout.setOnClickListener {
+                YesNoBottomSheet(
+                    this@PreferencesFragment,
+                    getString(R.string.log_out),
+                    getString(R.string.logout_warning),
+                    getString(R.string.cancel),
+                    getString(R.string.log_out)
+                ).show(parentFragmentManager, "")
+            }
+
+            prefsRecycler.apply {
+                layoutManager = GridLayoutManager(requireContext(), 2)
+                adapter = PreferencesAdapter(this@PreferencesFragment)
+            }
         }
     }
 
@@ -64,15 +77,8 @@ class PreferencesFragment : Fragment(), TagPositionInterface {
                     2 -> {}
                     3 -> {}
                     4 -> {}
-                    5 -> {}
                     else -> {
-                        YesNoBottomSheet(
-                            this,
-                            getString(R.string.log_out),
-                            getString(R.string.logout_warning),
-                            getString(R.string.cancel),
-                            getString(R.string.log_out)
-                        ).show(parentFragmentManager, "")
+                        startActivity(Intent(requireContext(), AppointmentsActivity::class.java))
                     }
                 }
             }
