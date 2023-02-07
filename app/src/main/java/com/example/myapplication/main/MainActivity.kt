@@ -17,10 +17,7 @@ import com.example.myapplication.main.vm.MainViewModel
 import com.example.myapplication.model.ListOfStudents
 import com.example.myapplication.model.Student
 import com.google.gson.Gson
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity(), PositionInterface {
     private var _binding: ActivityMainBinding? = null
@@ -58,7 +55,7 @@ class MainActivity : AppCompatActivity(), PositionInterface {
 
 
     override fun onBackPressed() {
-        super.onBackPressed()
+//        super.onBackPressed()
         binding.fragmentPager.apply {
             when (currentItem) {
                 0 -> exitApp()
@@ -73,10 +70,10 @@ class MainActivity : AppCompatActivity(), PositionInterface {
     }
 
     private fun exitApp() {
-        if (exit) finish() else CoroutineScope(Dispatchers.IO).launch {
+        if (exit) finish() else GlobalScope.launch(Dispatchers.IO) {
             exit = true
             toast.show()
-            delay(2000)
+            delay(3000)
             exit = false
         }
     }
