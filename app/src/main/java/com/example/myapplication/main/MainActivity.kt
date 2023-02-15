@@ -7,17 +7,20 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
-import com.example.myapplication.interfaces.PositionInterface
 import com.example.myapplication.R
 import com.example.myapplication.adapters.FragmentPagerAdapter
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.global_objects.Constants
+import com.example.myapplication.interfaces.PositionInterface
 import com.example.myapplication.main.vm.MainViewModel
 import com.example.myapplication.model.ListOfStudents
 import com.example.myapplication.model.Student
 import com.google.gson.Gson
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), PositionInterface {
     private var _binding: ActivityMainBinding? = null
@@ -70,7 +73,7 @@ class MainActivity : AppCompatActivity(), PositionInterface {
     }
 
     private fun exitApp() {
-        if (exit) finish() else GlobalScope.launch(Dispatchers.IO) {
+        if (exit) finish() else lifecycleScope.launch(Dispatchers.IO) {
             exit = true
             toast.show()
             delay(3000)

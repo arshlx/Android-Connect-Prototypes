@@ -9,7 +9,6 @@ import com.example.myapplication.services.RetrofitService
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.io.FileReader
 import java.io.IOException
 
 class SplashRepository {
@@ -19,8 +18,7 @@ class SplashRepository {
         var studentList = listOf<Student>()
         try {
             val response = remote?.getStudentList()
-
-            if (response != null) {
+            response?.let {
                 studentList = response.body()!!.toList()
             }
 
@@ -42,6 +40,7 @@ class SplashRepository {
         }
         return Pair(TaskStatus.SUCCESS, studentList.stuList)
     }
+
     private fun getJsonDataFromAsset(context: Context): String? {
         val jsonString: String
         try {

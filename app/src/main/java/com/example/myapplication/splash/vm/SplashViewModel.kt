@@ -26,7 +26,7 @@ class SplashViewModel : ViewModel() {
     fun initStudentList(context: Context) {
         studentStatus.value = TaskStatus.LOADING
         viewModelScope.launch {
-          val result = repository.getStudentsFromFile(context)
+            val result = repository.getStudentsFromFile(context)
             students = ListOfStudents(result.second)
             studentStatus.value = result.first
         }
